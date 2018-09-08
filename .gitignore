@@ -1,0 +1,9 @@
+./.nuxt/**
+\.nuxt/
+
+.firebase
+**/node_modules/
+
+*.log
+
+.idea/**

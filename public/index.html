@@ -15,7 +15,7 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: "Typewriter";
@@ -23,28 +23,34 @@
         }
     </style>
     <link rel="stylesheet" href="./style.css">
+
+    <script src="/HtmlLoader.js" type="text/javascript"></script>
 </head>
 <body style="display: grid; grid-template-rows: [first] 50px [second] auto;">
 <div class="container" style="grid-template-columns: [first] 200px [second] auto">
     <div class="title">Regex Odyssey</div>
-    <div class="header-menu"></div>
-</div>
-<div class="regex-generation-container">
-    <script type="module">
-        import {regexGeneration} from './regex_generation/RegexGeneration.js';
+    <div class="header-menu">
+        <script type="module">
+            import {initialiaseHeaderMenu} from '/HeaderMenu.js';
 
-        const regexGenerationContainer = document.getElementsByClassName("regex-generation-container")[0];
-        const input = regexGenerationContainer.querySelector('input');
-        const button = regexGenerationContainer.querySelector('button');
-        const value = regexGenerationContainer.querySelector('.output div');
-        regexGeneration(input, button, value);
-    </script>
-    <input type="text" placeholder="Regex value" style="margin-bottom: 0.5%"/>
-    <button style="margin-bottom: 0.5%">GENERATE</button>
-    <div class="output">
-        <div></div>
+            const pagesElement = document.getElementById("pages");
+            const headerMenu = document.getElementsByClassName("header-menu")[0];
+            const generateTag = headerMenu.querySelector("#generate-tag");
+            initialiaseHeaderMenu(generateTag, pagesElement);
+        </script>
+
+        <div id="generate-tag"></div>
     </div>
 </div>
+
+<div id="pages">
+    <div id="generate">
+        <div w3-include-html="/regex_generation/regex.html"></div>
+    </div>
+</div>
+<script>
+    includeHTML();
+</script>
 
 </body>
 </html>

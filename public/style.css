@@ -45,29 +45,3 @@ body > .container > .title {
     font-size: 30px;
     font-weight: bold;
 }
-
-/* Regex Generation */
-
-body > .regex-generation-container {
-    display: grid;
-    grid-template-rows: 10vw 10vw 10vw;
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-right: 10%;
-}
-
-body > .regex-generation-container > button, body > .regex-generation-container > input, body > .regex-generation-container > .output {
-    font-size: 5vw;
-}
-
-body > .regex-generation-container > .output {
-    background-color: var(--dark-1);
-    border-radius: 5px;
-    padding-left: 2%;
-    display: grid;
-}
-
-body > .regex-generation-container > .output > div {
-    margin-top: auto;
-    margin-bottom: auto;
-}

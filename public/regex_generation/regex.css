@@ -1,0 +1,42 @@
+/* Regex Generation */
+
+.regex-generation-container {
+    display: grid;
+    grid-template-rows: 30px 5px auto;
+    grid-template-columns: 3fr 2fr 1fr;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+
+.regex-generation-container > button, body > .regex-generation-container > input, body > .regex-generation-container > .output {
+    font-size: 15px;
+}
+
+.regex-generation-container > input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.regex-generation-container > button {
+    grid-column-start: 4;
+    grid-column-end: 4;
+}
+
+.regex-generation-container > .output {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    background-color: var(--middle);
+    color: var(--dark-0);
+    border-radius: 5px;
+    padding-left: 2%;
+    display: grid;
+    resize: vertical;
+    overflow: auto;
+}
+
+.regex-generation-container > .output > div {
+    margin-top: auto;
+    margin-bottom: auto;
+}

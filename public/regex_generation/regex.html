@@ -1,0 +1,18 @@
+<div id="regex-generation-container" class="regex-generation-container">
+    <link rel="stylesheet" href="/regex_generation/regex.css">
+    <input type="text" placeholder="Regex value"/>
+    <button><i class="em em-rocket"></i></button>
+    <div class="output">
+        <div>results...</div>
+    </div>
+</div>
+
+<script type="module">
+    import {regexGeneration} from '/regex_generation/RegexGeneration.js';
+
+    const regexGenerationContainer = document.getElementById("regex-generation-container");
+    const input = regexGenerationContainer.querySelector('input');
+    const button = regexGenerationContainer.querySelector('button');
+    const value = regexGenerationContainer.querySelector('.output div');
+    regexGeneration(input, button, value);
+</script>

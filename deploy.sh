@@ -6,5 +6,7 @@ sudo rm -r -d ./node_modules
 sudo git clone https://github.com/ldalzotto/DatabaseOdyssey.git
 
 sudo yarn install
-sudo yarn deploy
+
+cd ..
+firebase deploy
 

@@ -1,0 +1,73 @@
+:root {
+    --dark-1: #05386B;
+    --dark-0: #379683;
+    --middle: #5CDB95;
+    --light-0: #8EE4AF;
+    --light-1: #EDF5E1;
+
+    --theme-font: Typewriter, monospace;
+    font-family: var(--theme-font);
+}
+
+div {
+    color: var(--dark-0);
+}
+
+input, button {
+    background-color: var(--middle);
+    border-radius: 5px;
+    border-color: var(--dark-0);
+    font-family: var(--theme-font);
+}
+
+input {
+    padding-left: 2%;
+}
+
+body {
+    background-color: var(--light-1);
+    margin: 0;
+}
+
+/* Main Title */
+
+body > .container {
+    display: grid;
+    border: 0 groove var(--middle);
+    border-bottom-width: 5px;
+}
+
+body > .container > .title {
+    text-align: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    color: var(--middle);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Regex Generation */
+
+body > .regex-generation-container {
+    display: grid;
+    grid-template-rows: 10vw 10vw 10vw;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+
+body > .regex-generation-container > button, body > .regex-generation-container > input, body > .regex-generation-container > .output {
+    font-size: 5vw;
+}
+
+body > .regex-generation-container > .output {
+    background-color: var(--dark-1);
+    border-radius: 5px;
+    padding-left: 2%;
+    display: grid;
+}
+
+body > .regex-generation-container > .output > div {
+    margin-top: auto;
+    margin-bottom: auto;
+}

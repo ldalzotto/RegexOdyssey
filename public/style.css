@@ -20,6 +20,10 @@ input, button {
     font-family: var(--theme-font);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 input {
     padding-left: 2%;
 }
@@ -35,13 +39,56 @@ body > .container {
     display: grid;
     border: 0 groove var(--middle);
     border-bottom-width: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 body > .container > .title {
+    display: grid;
     text-align: center;
     margin-bottom: auto;
     margin-top: auto;
-    color: var(--middle);
     font-size: 30px;
     font-weight: bold;
+}
+
+body > .container > .title > .version {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+body > .container > .header-menu {
+    display: grid;
+    margin: auto 15px auto auto;
+    grid-gap: 1em 20px;
+    font-size: 20px;
+}
+
+body > .container > .header-menu > #generate-tag {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+body > .container > .header-menu > #generate-tag:hover {
+    cursor: pointer;
+}
+
+body > .container > .header-menu > #doc-tag {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+body > .container > .header-menu > #doc-tag:hover {
+    cursor: pointer;
+}
+
+body > .container > .header-menu > #contact-tag {
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+
+body > .container > .header-menu > #contact-tag:hover {
+    cursor: pointer;
 }

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
 
-    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <script src="/lib/axios.min.js"></script>
+    <link href="/lib/emoji.css" rel="stylesheet">
     <style>
         @font-face {
             font-family: "Typewriter";
@@ -17,9 +17,12 @@
 
     <script src="/HtmlLoader.js" type="text/javascript"></script>
 </head>
-<body style="display: grid; grid-template-rows: [first] 50px [second] auto;">
-<div class="container" style="grid-template-columns: [first] 200px [second] auto">
-    <div class="title">Regex Odyssey</div>
+<body style="display: grid;">
+<div class="container" style="grid-template-columns: [first] 250px [second] auto">
+    <div class="title" style="display: grid">
+        <div>Regex Odyssey</div>
+        <div class="version">v 0.0.1</div>
+    </div>
     <div class="header-menu">
         <script type="module">
             import {initialiaseHeaderMenu} from '/HeaderMenu.js';
@@ -27,17 +30,19 @@
             const pagesElement = document.getElementById("pages");
             const headerMenu = document.getElementsByClassName("header-menu")[0];
             const generateTag = headerMenu.querySelector("#generate-tag");
-            initialiaseHeaderMenu(generateTag, pagesElement);
+            const docTag = headerMenu.querySelector("#doc-tag");
+            const contactTag = headerMenu.querySelector("#contact-tag");
+            initialiaseHeaderMenu(generateTag, contactTag, docTag, pagesElement, "GENERATE");
         </script>
 
-        <div id="generate-tag"></div>
+        <div id="generate-tag">Generate</div>
+        <div id="doc-tag">Doc</div>
+        <div id="contact-tag">Contact</div>
     </div>
 </div>
 
 <div id="pages">
-    <div id="generate">
-        <div w3-include-html="/regex_generation/regex.html"></div>
-    </div>
+    <div w3-include-html="/regex_generation/regex.html"></div>
 </div>
 <script>
     includeHTML();

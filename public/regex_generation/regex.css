@@ -18,7 +18,7 @@
     grid-column-end: 3;
 }
 
-.regex-generation-container > button {
+.regex-generation-container > .compute-button {
     grid-column-start: 4;
     grid-column-end: 4;
 }
@@ -31,12 +31,53 @@
     color: var(--dark-0);
     border-radius: 5px;
     padding-left: 2%;
+    padding-right: 2%;
     display: grid;
     resize: vertical;
     overflow: auto;
+    min-height: 100px;
 }
 
 .regex-generation-container > .output > div {
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.center {
+    margin-top: 5%;
+    display: grid;
+    font-size: 20px;
+}
+
+@media (max-width: 640px) {
+    .center {
+        font-size: 15px;
+    }
+}
+
+.center > div {
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.center > .first-line {
+    padding-right: 200px;
+}
+
+.center > .second-line {
+    padding-left: 100px;
+}
+
+@media (max-width: 500px) {
+    .center {
+        font-size: 15px;
+    }
+
+    .center > .first-line {
+        padding-right: 0;
+    }
+
+    .center > .second-line {
+        padding-left: 0;
+    }
 }

@@ -1,9 +1,0 @@
-.rocket {
-    --transitiontime: 500ms;
-    transition: left var(--transitiontime) linear, top var(--transitiontime) linear, transform var(--transitiontime) linear;
-    position: relative;
-}
-
-.no-display {
-    display: none;
-}

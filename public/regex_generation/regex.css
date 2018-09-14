@@ -2,7 +2,7 @@
 
 .regex-generation-container {
     display: grid;
-    grid-template-rows: 30px 5px auto;
+    grid-template-rows: auto 5px auto;
     grid-template-columns: 3fr 2fr 1fr;
     margin-left: 10%;
     margin-top: 5%;
@@ -21,6 +21,11 @@
 .regex-generation-container > .compute-button {
     grid-column-start: 4;
     grid-column-end: 4;
+}
+
+.regex-generation-container > .compute-button > .button-rocket > svg {
+    width: 30px;
+    height: 30px;
 }
 
 .regex-generation-container > .output {

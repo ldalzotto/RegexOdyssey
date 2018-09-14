@@ -7,6 +7,7 @@ export const regexGeneration = function (inputText, buttonValidation, generatedT
         return regexGenerationApiCall(inputText.value, axios).then((response) => {
             if (generatedText.innerText !== response.data) {
                 generatedText.innerText = response.data;
+                buttonValidation.children[0].children[0].dispatchEvent(new Event("animation-trigger"));
             }
         }).catch((err) => {
             console.error(err)

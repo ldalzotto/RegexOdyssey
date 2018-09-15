@@ -1,5 +1,6 @@
-const animationTimeInS = 2;
+import {Cloud} from '/rocket/cloud/Cloud.js';
 
+const animationTimeInS = 2;
 const rotationTimeInS = 0.2;
 
 export class Rocket {
@@ -15,6 +16,11 @@ export class Rocket {
             this.html.style.transform = "rotate(-25deg)";
 
             this.rotationTimeout = setTimeout(() => {
+                this.cloudSpawnInterval = setInterval(() => {
+                    this.spawnCloud();
+                }, 50);
+
+
                 this.html.style.transition = `transform ${animationTimeInS}s cubic-bezier(0.97, 0.05, 1, 1)`;
                 this.html.style.transform = "translate(1500px, -4000px)";
                 this.animationTimeout = setTimeout(() => {
@@ -27,10 +33,18 @@ export class Rocket {
     resetState() {
         clearTimeout(this.animationTimeout);
         clearTimeout(this.rotationTimeout);
+        clearInterval(this.cloudSpawnInterval);
         this.animationTimeout = undefined;
         this.rotationTimeout = undefined;
         this.html.style.transition = "";
         this.html.style.transform = "";
+    }
+
+    spawnCloud() {
+        // get lower middle point
+        const cloud = new Cloud();
+        cloud.setPosition(this.html.getBoundingClientRect().bottom, this.html.getBoundingClientRect().left);
+        cloud.spawn();
     }
 }
 

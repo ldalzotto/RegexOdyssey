@@ -23,7 +23,11 @@
     grid-column-end: 4;
 }
 
-.regex-generation-container > .compute-button > .button-rocket > svg {
+.regex-generation-container > .compute-button:focus {
+    outline: none;
+}
+
+.regex-generation-container > .compute-button > .button-rocket > div > svg {
     width: 30px;
     height: 30px;
 }

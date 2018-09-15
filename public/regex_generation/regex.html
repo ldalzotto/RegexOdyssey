@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/regex_generation/regex.css">
     <input type="text" placeholder="Write and send Regex to the rocket."/>
     <button class="compute-button">
-        <div w3-include-html="/rocket/Rocket.html" class="button-rocket"></div>
+        <div class="button-rocket" style="display: grid"></div>
     </button>
     <div class="output">
         <div>results...</div>
@@ -23,6 +23,7 @@
     const regexGenerationContainer = document.getElementById("regex-generation-container");
     const input = regexGenerationContainer.querySelector('input');
     const button = regexGenerationContainer.querySelector('.compute-button');
+    const rocketSvgContainer = button.querySelector('.button-rocket');
     const value = regexGenerationContainer.querySelector('.output div');
-    regexGeneration(input, button, value);
+    regexGeneration(input, button, value, rocketSvgContainer);
 </script>

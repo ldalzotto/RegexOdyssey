@@ -1,8 +1,43 @@
-<svg
+const animationTimeInS = 2;
+
+const rotationTimeInS = 0.2;
+
+export class Rocket {
+    constructor() {
+        const svgElement = document.createElement("div");
+        svgElement.innerHTML = html;
+        this.html = svgElement;
+    }
+
+    triggerAnimation() {
+        if (!this.animationTimeout) {
+            this.html.style.transition = `transform ${rotationTimeInS}s cubic-bezier(0.97, 0.05, 1, 1)`;
+            this.html.style.transform = "rotate(-25deg)";
+
+            this.rotationTimeout = setTimeout(() => {
+                this.html.style.transition = `transform ${animationTimeInS}s cubic-bezier(0.97, 0.05, 1, 1)`;
+                this.html.style.transform = "translate(1500px, -4000px)";
+                this.animationTimeout = setTimeout(() => {
+                    this.resetState()
+                }, (rotationTimeInS * 1000) + (animationTimeInS * 1000))
+            }, rotationTimeInS * 1000);
+        }
+    }
+
+    resetState() {
+        clearTimeout(this.animationTimeout);
+        clearTimeout(this.rotationTimeout);
+        this.animationTimeout = undefined;
+        this.rotationTimeout = undefined;
+        this.html.style.transition = "";
+        this.html.style.transform = "";
+    }
+}
+
+const html = `<svg
         xmlns:dc="http://purl.org/dc/elements/1.1/"
         xmlns:cc="http://creativecommons.org/ns#"
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        xmlns:svg="http://www.w3.org/2000/svg"
         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
         xmlns="http://www.w3.org/2000/svg"
@@ -192,11 +227,4 @@
     </g>
 
 
-</svg>
-<link rel="stylesheet" href="/rocket/Rocket.css">
-<script type="module">
-    import {initialiseRocket} from "/rocket/Rocket.js"
-
-    const svgRocket = document.getElementById("svg8");
-    initialiseRocket(svgRocket);
-</script>
+</svg>`

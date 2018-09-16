@@ -15,15 +15,18 @@
         <div>results...</div>
     </div>
 </div>
+<div id="cloud-container"></div>
 <!-- End Regex Generation Module -->
 
 <script type="module">
     import {regexGeneration} from '/regex_generation/RegexGeneration.js';
+    import {RocketAnimationTriggerService} from '/rocket/RocketAnimationTriggerService.js';
 
     const regexGenerationContainer = document.getElementById("regex-generation-container");
     const input = regexGenerationContainer.querySelector('input');
     const button = regexGenerationContainer.querySelector('.compute-button');
     const rocketSvgContainer = button.querySelector('.button-rocket');
     const value = regexGenerationContainer.querySelector('.output div');
-    regexGeneration(input, button, value, rocketSvgContainer);
+    const cloudContainer = document.getElementById("cloud-container");
+    regexGeneration(input, button, value, rocketSvgContainer, new RocketAnimationTriggerService(cloudContainer));
 </script>

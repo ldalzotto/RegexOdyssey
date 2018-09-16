@@ -15,9 +15,9 @@ export class Cloud {
         this.html.style.left = left - (parseInt(this.svgElement.style.width) / 2) + "px";
     }
 
-    spawn() {
+    spawn(cloudContainerElement) {
 
-        document.getElementById("cloud-container").appendChild(this.html);
+        cloudContainerElement.appendChild(this.html);
 
         setTimeout(() => {
             this.html.parentNode.removeChild(this.html);

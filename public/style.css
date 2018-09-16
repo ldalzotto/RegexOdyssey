@@ -7,6 +7,7 @@
 
     --theme-font: Typewriter, monospace;
     font-family: var(--theme-font);
+    overflow-x: hidden;
 }
 
 div {
@@ -91,8 +92,4 @@ body > .container > .header-menu > #contact-tag {
 
 body > .container > .header-menu > #contact-tag:hover {
     cursor: pointer;
-}
-
-body > .cloud-container {
-    overflow-x: hidden;
 }

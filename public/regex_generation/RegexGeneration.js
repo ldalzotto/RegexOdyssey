@@ -1,13 +1,13 @@
 import {regexGenerationApiCall} from './RegexGenerationApiCall.js';
 import {Rocket} from "/rocket/Rocket.js";
 
-export const regexGeneration = function (inputText, buttonValidation, generatedText, rocketSvgContainer) {
+export const regexGeneration = function (inputText, buttonValidation, generatedText, rocketSvgContainer, rocketAnimationTriggerService) {
 
     const rocketElement = new Rocket();
     rocketSvgContainer.appendChild(rocketElement.html);
 
     function executeRegexGeneration() {
-        rocketElement.triggerAnimation();
+        rocketAnimationTriggerService.triggerAnimation(rocketElement);
         return regexGenerationApiCall(inputText.value, axios).then((response) => {
             if (generatedText.innerText !== response.data) {
                 generatedText.innerText = response.data;

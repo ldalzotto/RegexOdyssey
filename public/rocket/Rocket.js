@@ -10,14 +10,14 @@ export class Rocket {
         this.html = svgElement;
     }
 
-    triggerAnimation() {
+    triggerAnimation(cloudContainer) {
         if (!this.animationTimeout) {
             this.html.style.transition = `transform ${rotationTimeInS}s cubic-bezier(0.97, 0.05, 1, 1)`;
             this.html.style.transform = "rotate(-25deg)";
 
             this.rotationTimeout = setTimeout(() => {
                 this.cloudSpawnInterval = setInterval(() => {
-                    this.spawnCloud();
+                    this.spawnCloud(cloudContainer);
                 }, 50);
 
 
@@ -36,15 +36,16 @@ export class Rocket {
         clearInterval(this.cloudSpawnInterval);
         this.animationTimeout = undefined;
         this.rotationTimeout = undefined;
+        this.cloudSpawnInterval = undefined;
         this.html.style.transition = "";
         this.html.style.transform = "";
     }
 
-    spawnCloud() {
+    spawnCloud(cloudContainer) {
         // get lower middle point
         const cloud = new Cloud();
         cloud.setPosition(this.html.getBoundingClientRect().bottom, this.html.getBoundingClientRect().left);
-        cloud.spawn();
+        cloud.spawn(cloudContainer);
     }
 }
 

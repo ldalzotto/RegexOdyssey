@@ -1,4 +1,4 @@
-import {Cloud} from '/rocket/cloud/Cloud.js';
+import {Cloud} from './cloud/Cloud.js';
 
 const animationTimeInS = 2;
 const rotationTimeInS = 0.2;

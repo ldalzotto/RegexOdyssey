@@ -13,8 +13,6 @@
         }
     </style>
     <link rel="stylesheet" href="./style.css">
-
-    <script src="/HtmlLoader.js" type="text/javascript"></script>
 </head>
 <body style="display: grid;">
 <div class="container" style="grid-template-columns: [first] 250px [second] auto">
@@ -23,30 +21,13 @@
         <div class="version">v 0.0.1</div>
     </div>
     <div class="header-menu">
-        <script type="module">
-            import {initialiaseHeaderMenu} from '/HeaderMenu.js';
-
-            const pagesElement = document.getElementById("pages");
-            const headerMenu = document.getElementsByClassName("header-menu")[0];
-            const generateTag = headerMenu.querySelector("#generate-tag");
-            const docTag = headerMenu.querySelector("#doc-tag");
-            const contactTag = headerMenu.querySelector("#contact-tag");
-            initialiaseHeaderMenu(generateTag, contactTag, docTag, pagesElement, "GENERATE");
-        </script>
-
-        <div id="generate-tag">Generate</div>
-        <div id="doc-tag">Doc</div>
-        <div id="contact-tag">Contact</div>
     </div>
 </div>
 
 <div id="pages">
-    <div w3-include-html="/regex_generation/regex.html"></div>
 </div>
 
-<script>
-    includeHTML();
-</script>
+<script src="index.js" type="module"></script>
 
 </body>
 </html>

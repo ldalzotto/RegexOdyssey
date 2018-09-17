@@ -61,37 +61,3 @@ body > .container > .title > .version {
     font-size: 14px;
     margin-top: auto;
 }
-
-body > .container > .header-menu {
-    display: grid;
-    margin: auto 15px auto auto;
-    grid-gap: 1em 20px;
-    font-size: 20px;
-}
-
-body > .container > .header-menu > #generate-tag {
-    grid-column-start: 1;
-    grid-column-end: 1;
-}
-
-body > .container > .header-menu > #generate-tag:hover {
-    cursor: pointer;
-}
-
-body > .container > .header-menu > #doc-tag {
-    grid-column-start: 2;
-    grid-column-end: 2;
-}
-
-body > .container > .header-menu > #doc-tag:hover {
-    cursor: pointer;
-}
-
-body > .container > .header-menu > #contact-tag {
-    grid-column-start: 3;
-    grid-column-end: 3;
-}
-
-body > .container > .header-menu > #contact-tag:hover {
-    cursor: pointer;
-}

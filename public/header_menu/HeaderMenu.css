@@ -1,0 +1,33 @@
+.header-menu {
+    display: grid;
+    margin: auto 15px auto auto;
+    grid-gap: 1em 20px;
+    font-size: 20px;
+}
+
+.header-menu > #generate-tag {
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.header-menu > #generate-tag:hover {
+    cursor: pointer;
+}
+
+.header-menu > #doc-tag {
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.header-menu > #doc-tag:hover {
+    cursor: pointer;
+}
+
+.header-menu > #contact-tag {
+    grid-column-start: 3;
+    grid-column-end: 3;
+}
+
+.header-menu > #contact-tag:hover {
+    cursor: pointer;
+}

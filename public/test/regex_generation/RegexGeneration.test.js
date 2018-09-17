@@ -1,4 +1,4 @@
-import {regexGeneration} from '/regex_generation/RegexGeneration.js';
+import {regexGeneratonion} from '/regex_generation/RegexGeneration.js';
 import {Rocket} from "../../rocket/Rocket.js";
 import {RocketAnimationTriggerService} from "../../rocket/RocketAnimationTriggerService.js";
 

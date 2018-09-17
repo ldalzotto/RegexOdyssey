@@ -1,0 +1,54 @@
+.bar > .option-bar {
+    position: relative;
+    top: -13px;
+    overflow: hidden;
+    transition: height .1s linear;
+    height: 1px;
+}
+
+.bar > .top-border {
+    border: 1px none var(--dark-0);
+    border-top-style: solid;
+}
+
+.bar > .all-border {
+    border: 1px solid var(--dark-0);
+}
+
+.bar > .arrow {
+    transition: transform .1s linear;
+    background: var(--web-background-color);
+    display: grid;
+    margin: auto;
+    z-index: 1;
+}
+
+.arrow-down {
+    transform: rotate(-90deg);
+}
+
+.arrow-left {
+    transform: rotate(0deg);
+}
+
+.bar > .arrow > img {
+    height: 20px;
+}
+
+.bar > .title {
+    border: 1px solid var(--dark-0);
+    margin-bottom: auto;
+    margin-top: auto;
+    padding: 4px;
+    background: var(--web-background-color);
+    z-index: 1;
+    user-select: none;
+}
+
+.trigger:hover {
+    cursor: pointer;
+}
+
+.bar > .option-bar > .content {
+    margin-top: 10px;
+}

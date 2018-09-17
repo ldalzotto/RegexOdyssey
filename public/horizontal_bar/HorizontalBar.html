@@ -1,0 +1,54 @@
+<div>
+    <link rel="/horizontal_bar/HorizontalBar.css" type="text/css">
+    <div class="bar"
+         style="display: grid; grid-template-columns: [beginspace] 10px [begin] auto [title] 8fr [bar] auto">
+        <div class="trigger"></div>
+        <div class="title trigger">Options</div>
+        <div class="trigger"></div>
+        <div class="arrow arrow-left trigger"><img src="/resources/left-arrow_simple.svg"></div>
+        <div class="option-bar top-border" style="grid-column: 1 / -1">
+            <div class="content">
+                <slot></slot>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const barElements = document.getElementsByClassName("bar");
+    console.log(`Founded bar elements`);
+    console.log(barElements);
+    for (let i = 0; i < barElements.length; i++) {
+        const bar = barElements[i];
+        const arrow = bar.querySelector(".arrow");
+        const optionBar = bar.querySelector(".option-bar");
+        const elementContent = optionBar.querySelector(".content");
+        const allTriggerElements = bar.querySelectorAll(".trigger");
+
+        const hide = function () {
+            arrow.classList.remove("arrow-down");
+            arrow.classList.add("arrow-left");
+            optionBar.classList.remove("all-border");
+            optionBar.style.height = `1px`;
+        };
+        const display = function () {
+            arrow.classList.remove("arrow-left");
+            arrow.classList.add("arrow-down");
+            optionBar.classList.add("all-border");
+            optionBar.style.height = `${elementContent.getBoundingClientRect().height + parseInt(window.getComputedStyle(elementContent).marginTop)}px`;
+        };
+
+        allTriggerElements.forEach((element) => {
+            element.addEventListener("click", () => {
+                if (arrow.classList.contains("arrow-left")) {
+                    display()
+                } else {
+                    hide()
+                }
+            });
+        });
+    }
+
+</script>
+
+<style src="/horizontal_bar/HorizontalBar.css"></style>

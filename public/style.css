@@ -5,6 +5,8 @@
     --light-0: #8EE4AF;
     --light-1: #EDF5E1;
 
+    --web-background-color: var(--light-1);
+
     --theme-font: Typewriter, monospace;
     font-family: var(--theme-font);
     overflow-x: hidden;
@@ -30,7 +32,7 @@ input {
 }
 
 body {
-    background-color: var(--light-1);
+    background-color: var(--web-background-color);
     margin: 0;
 }
 

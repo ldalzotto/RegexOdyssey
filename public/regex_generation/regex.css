@@ -32,10 +32,16 @@
     height: 30px;
 }
 
+.regex-generation-container > #option-bar {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
 .regex-generation-container > .output {
     grid-column-start: 1;
     grid-column-end: 5;
-    grid-row-start: 3;
+    grid-row-start: 4;
     background-color: var(--middle);
     color: var(--dark-0);
     border-radius: 5px;

@@ -1,3 +1,7 @@
-export const regexGenerationApiCall = function (inputText, axios) {
-    return axios.get(`/regexgeneration?regex=${inputText}`)
+export const regexGenerationApiCall = function (inputText, nbOfGeneration, axios) {
+    let options = {
+        nbOfGeneration: nbOfGeneration
+    };
+
+    return axios.get(`/regexgeneration?regex=${inputText}&options=${JSON.stringify(options)}`)
 };

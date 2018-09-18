@@ -1,21 +1,21 @@
 import {regexGenerationApiCall} from './RegexGenerationApiCall.js';
 import {Rocket} from "../rocket/Rocket.js";
 import {RocketAnimationTriggerService} from '../rocket/RocketAnimationTriggerService.js';
-import {HorizontalBar} from '../horizontal_bar/HorizontalBar.js';
+import {OptionMenu} from "./option/OptionMenu.js";
 
 export class RegexGenerationPage {
     constructor() {
         const regexGenerationPageContaier = document.createElement("div");
         regexGenerationPageContaier.innerHTML = html;
 
-        const optionCollapsibleMenu = new HorizontalBar("Options");
+        const optionCollapsibleMenu = new OptionMenu();
         regexGenerationPageContaier.querySelector("#option-bar").appendChild(optionCollapsibleMenu.html);
 
         this.html = regexGenerationPageContaier;
-        this.makeComponentInteractable();
+        this.makeComponentInteractable(optionCollapsibleMenu);
     }
 
-    makeComponentInteractable() {
+    makeComponentInteractable(optionCollapsibleMenu) {
         setTimeout(() => {
 
             const regexGenerationContainer = this.html.querySelector("#regex-generation-container");
@@ -30,7 +30,8 @@ export class RegexGenerationPage {
 
             function executeRegexGeneration() {
                 new RocketAnimationTriggerService(cloudContainer).triggerAnimation(rocketElement);
-                return regexGenerationApiCall(input.value, axios).then((response) => {
+                let options = optionCollapsibleMenu.getOptionValues();
+                return regexGenerationApiCall(input.value, options.number, axios).then((response) => {
                     if (value.innerText !== response.data) {
                         value.innerText = response.data;
                     }

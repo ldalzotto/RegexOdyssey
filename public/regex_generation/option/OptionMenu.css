@@ -1,0 +1,23 @@
+.option-menu-container {
+    display: grid;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.option-menu-container > .number-choice {
+    grid-row-start: 0;
+    grid-row-end: 1;
+    display: grid;
+}
+
+.option-menu-container > .number-choice > div {
+    grid-column-start: 0;
+    grid-column-end: 1;
+}
+
+.option-menu-container > .number-choice > input {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}

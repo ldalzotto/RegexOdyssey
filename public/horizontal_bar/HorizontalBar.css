@@ -41,8 +41,13 @@
     margin-top: auto;
     padding: 4px;
     background: var(--web-background-color);
+    filter: brightness(95%);
     z-index: 1;
     user-select: none;
+}
+
+.bar > .title:hover {
+    filter: brightness(90%);
 }
 
 .trigger:hover {

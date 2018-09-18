@@ -1,7 +1,7 @@
 export class HorizontalBar {
-    constructor(titleName) {
+    constructor(titleName, innerHtmlElement) {
         const containerElement = document.createElement("div");
-        containerElement.innerHTML = html(titleName);
+        containerElement.innerHTML = html(titleName, innerHtmlElement);
         this.html = containerElement;
         this.makeComponentInteractable();
     }
@@ -40,7 +40,7 @@ export class HorizontalBar {
     }
 }
 
-const html = (titleName) => {
+const html = (titleName, innerHtmlElement) => {
     return `
        <div class="bar"
          style="display: grid; grid-template-columns: [beginspace] 10px [begin] auto [title] 8fr [bar] auto">
@@ -51,10 +51,7 @@ const html = (titleName) => {
         <div class="arrow arrow-left trigger"><img src="/resources/left-arrow_simple.svg"></div>
         <div class="option-bar top-border" style="grid-column: 1 / -1">
             <div class="content">
-                <div>Button
-                    <button></button>
-                </div>
-                <div>zdzd</div>
+                ${innerHtmlElement.innerHTML}
             </div>
         </div>
     </div> 

@@ -35,15 +35,6 @@ export class Cloud {
             this.html.style.left = `${parseInt(this.html.style.left) - 50}px`;
 
         }, 100);
-
-        /**
-
-         //random orientation speed
-         const randomAngleSpeedIndeDeg = Math.floor(Math.random() * 360);
-
-         this.html.style.transform = `rotate(${randomAngleIndeDeg + randomAngleSpeedIndeDeg}deg)`;
-
-         **/
     }
 }
 

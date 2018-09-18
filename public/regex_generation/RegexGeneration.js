@@ -12,44 +12,47 @@ export class RegexGenerationPage {
         regexGenerationPageContaier.querySelector("#option-bar").appendChild(optionCollapsibleMenu.html);
 
         this.html = regexGenerationPageContaier;
-        this.makeComponentInteractable(optionCollapsibleMenu);
+        setTimeout(() => {
+            this.makeComponentInteractable(optionCollapsibleMenu);
+        });
     }
 
     makeComponentInteractable(optionCollapsibleMenu) {
-        setTimeout(() => {
+        const regexGenerationContainer = this.html.querySelector("#regex-generation-container");
+        const input = regexGenerationContainer.querySelector('input');
+        const button = regexGenerationContainer.querySelector('.compute-button');
+        const rocketSvgContainer = button.querySelector('.button-rocket');
+        const value = regexGenerationContainer.querySelector('.output pre');
+        const cloudContainer = this.html.querySelector("#cloud-container");
 
-            const regexGenerationContainer = this.html.querySelector("#regex-generation-container");
-            const input = regexGenerationContainer.querySelector('input');
-            const button = regexGenerationContainer.querySelector('.compute-button');
-            const rocketSvgContainer = button.querySelector('.button-rocket');
-            const value = regexGenerationContainer.querySelector('.output pre');
-            const cloudContainer = this.html.querySelector("#cloud-container");
+        const rocketElement = new Rocket();
+        rocketSvgContainer.appendChild(rocketElement.html);
 
-            const rocketElement = new Rocket();
-            rocketSvgContainer.appendChild(rocketElement.html);
-
-            function executeRegexGeneration() {
-                new RocketAnimationTriggerService(cloudContainer).triggerAnimation(rocketElement);
-                let options = optionCollapsibleMenu.getOptionValues();
-                return regexGenerationApiCall(input.value, options.number, axios).then((response) => {
-                    if (value.innerText !== response.data) {
-                        value.innerText = JSON.stringify(response.data, null, 4);
-                    }
-                }).catch((err) => {
-                    console.error(err)
-                })
+        function executeRegexGeneration() {
+            new RocketAnimationTriggerService(cloudContainer).triggerAnimation(rocketElement);
+            let options = optionCollapsibleMenu.getOptionValues();
+            if (!options) {
+                options = {};
             }
 
-            button.addEventListener('click', () => {
-                return executeRegexGeneration();
-            });
-
-            input.addEventListener('keyup', (keyEvent) => {
-                if (keyEvent.key === "Enter") {
-                    return executeRegexGeneration();
+            return regexGenerationApiCall(input.value, options.number, axios).then((response) => {
+                if (value.innerText !== response.data) {
+                    value.innerText = JSON.stringify(response.data, null, 4);
                 }
-            });
-        })
+            }).catch((err) => {
+                console.error(err)
+            })
+        }
+
+        button.addEventListener('click', () => {
+            return executeRegexGeneration();
+        });
+
+        input.addEventListener('keyup', (keyEvent) => {
+            if (keyEvent.key === "Enter") {
+                return executeRegexGeneration();
+            }
+        });
     }
 }
 

@@ -22,7 +22,7 @@ export class RegexGenerationPage {
             const input = regexGenerationContainer.querySelector('input');
             const button = regexGenerationContainer.querySelector('.compute-button');
             const rocketSvgContainer = button.querySelector('.button-rocket');
-            const value = regexGenerationContainer.querySelector('.output div');
+            const value = regexGenerationContainer.querySelector('.output pre');
             const cloudContainer = this.html.querySelector("#cloud-container");
 
             const rocketElement = new Rocket();
@@ -33,7 +33,7 @@ export class RegexGenerationPage {
                 let options = optionCollapsibleMenu.getOptionValues();
                 return regexGenerationApiCall(input.value, options.number, axios).then((response) => {
                     if (value.innerText !== response.data) {
-                        value.innerText = response.data;
+                        value.innerText = JSON.stringify(response.data, null, 4);
                     }
                 }).catch((err) => {
                     console.error(err)
@@ -70,7 +70,7 @@ const html = `
         <div id="option-bar">
         </div>
         <div class="output">
-            <div>results...</div>
+            <pre>results...</pre>
         </div>
     </div>
     <div id="cloud-container"></div>

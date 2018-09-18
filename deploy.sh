@@ -1,6 +1,6 @@
 set -x
 
-DatabaseOdysseyTag="v0.0.1"
+DatabaseOdysseyTag="v0.0.2"
 
 cd functions
 sudo rm -r -d ./DatabaseOdyssey
